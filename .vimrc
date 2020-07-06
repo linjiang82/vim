@@ -19,12 +19,21 @@ command! -nargs=0 Prettier :CocCommand prettier.formatFile
 " Disable file type for vundle
 filetype off                  " required
 
+if empty(glob('~/.vim/autoload/plug.vim'))
+   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+       \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+    endif
+
+
 " set the runtime path to include Vundle and initialize
 call plug#begin()
 
+set runtimepath+=expand('~/.vim/plugged/vim-mql4')
 
 " Utility
 "Plug 'janko/vim-test'
+Plug 'vobornik/vim-mql4'
 Plug 'elmcast/elm-vim'
 Plug 'tpope/vim-surround'
 Plug 'Valloric/MatchTagAlways'
@@ -480,9 +489,6 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
-
-" Highlight symbol under cursor on CursorHold
-autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)

@@ -19,9 +19,6 @@ set scrolloff=999                                " center cursor position vertic
 set showbreak=¬\                                 " Wrapping character
 set showmatch                                    " show matching brackets
 syntax on                                        " enable syntax highlightning
-" Disable arrow movement, resize splits instead.
-if get(g:, 'elite_mode')
-endif
 
 " Colors
 colorscheme onedark
@@ -62,6 +59,7 @@ nnoremap <Leader>o :Files<CR>
 inoremap <Leader>w <ESC>:w<CR>
 nnoremap <Leader>w :w<CR>
 noremap <F5> <ESC>:w<CR>:!clear;python %<CR>
+" Disable arrow movement, resize splits instead.
 nnoremap <Up>    :resize +2<CR>
 nnoremap <Down>  :resize -2<CR>
 nnoremap <Left>  :vertical resize +2<CR>

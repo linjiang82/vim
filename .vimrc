@@ -1,441 +1,115 @@
-"""""""""""""""""""""""""""""""""""""
-" Allan MacGregor Vimrc configuration
-"""""""""""""""""""""""""""""""""""""
-set encoding=utf8
-set hidden
-set mouse=a
-set path+=**
-set nocompatible
-" Display all matching files when we tab complete
-set wildmenu
-let mapleader=","
-let g:Tlist_Ctags_Cmd = '/usr/local/Cellar/ctags/5.8_1/bin/ctags'
-"let g:prettier#exec_cmd_path = '/Users/John/.vim/plugged/vim-prettier'
-command! -nargs=0 Prettier :CocCommand prettier.formatFile
-"""" START Vundle Configuration
-"
-" run :PlugInstall PlugClean PlugUpdate
 
-" Disable file type for vundle
-filetype off                  " required
-
-if empty(glob('~/.vim/autoload/plug.vim'))
-   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-       \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-    endif
-
-
-" set the runtime path to include Vundle and initialize
-call plug#begin()
-
-set runtimepath+=expand('~/.vim/plugged/vim-mql4')
-
-" Utility
-"Plug 'janko/vim-test'
-Plug 'neoclide/coc.nvim',{'branch':'release'}
-Plug 'vobornik/vim-mql4'
-Plug 'elmcast/elm-vim'
-Plug 'tpope/vim-surround'
-Plug 'Valloric/MatchTagAlways'
-Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/nerdcommenter'
-Plug 'majutsushi/tagbar'
-" Plug 'ervandew/supertab'
-Plug 'wesQ3/vim-windowswap'
-Plug 'godlygeek/tabular'
-"Plug 'ctrlpvim/ctrlp.vim'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim' 
-Plug 'benmills/vimux'
-Plug 'jeetsukumaran/vim-buffergator'
-Plug 'gilsondev/searchtasks.vim'
-Plug 'tpope/vim-dispatch'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-"Plug 'prettier/vim-prettier', { 'do': 'npm install' } 
-
-" Generic Programming Support
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
-Plug 'isruslan/vim-es6'
-" Plug 'jakedouglas/exuberant-ctags'
-Plug 'honza/vim-snippets'
-Plug 'Townk/vim-autoclose'
-Plug 'alvan/vim-closetag'
-Plug 'tomtom/tcomment_vim'
-Plug 'tobyS/vmustache'
-Plug 'vim-syntastic/syntastic'
-Plug 'neomake/neomake'
-
-" dart and flutter support
-Plug 'dart-lang/dart-vim-plugin'
-Plug 'thosakwe/vim-flutter'
-
-" Markdown / Writting
-Plug 'reedes/vim-pencil'
-Plug 'tpope/vim-markdown'
-Plug 'jtratner/vim-flavored-markdown'
-
-" Git Support
-Plug 'kablamo/vim-git-log'
-Plug 'gregsexton/gitv'
-Plug 'tpope/vim-fugitive'
-"Plug 'jaxbot/github-issues.vim'
-
-" PHP Support
-Plug 'phpvim/phpcd.vim'
-Plug 'tobyS/pdv'
-
-" Elm Support
-Plug 'lambdatoast/elm.vim'
-
-" Theme / Interface
-Plug 'ryanoasis/vim-devicons'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'sjl/badwolf'
-Plug 'tomasr/molokai'
-Plug 'morhetz/gruvbox'
-Plug 'zenorocha/dracula-theme', {'rtp': 'vim/'}
-Plug 'junegunn/limelight.vim'
-Plug 'mkarmona/colorsbox'
-Plug 'romainl/Apprentice'
-Plug 'Lokaltog/vim-distinguished'
-Plug 'chriskempson/base16-vim'
-Plug 'w0ng/vim-hybrid'
-Plug 'AlessandroYorba/Sierra'
-Plug 'daylerees/colour-schemes'
-Plug 'effkay/argonaut.vim'
-Plug 'ajh17/Spacegray.vim'
-Plug 'atelierbram/Base2Tone-vim'
-Plug 'colepeters/spacemacs-theme.vim'
-Plug 'leafgarland/typescript-vim'
-Plug 'peitalin/vim-jsx-typescript'
-
-call plug#end()            " required
-filetype plugin indent on    " required
-"""" END Vundle Configuration
-
-"""""""""""""""""""""""""""""""""""""
-" Configuration Section
-"""""""""""""""""""""""""""""""""""""
-set nowrap
-
-" OSX stupid backspace fix
-set backspace=indent,eol,start
-
-" Show linenumbers
+" Basic
+set autoread                                     " reload on external file changes
+set backspace=indent,eol,start                   " backspace behaviour
+set clipboard=unnamed,unnamedplus                " enable clipboard
+set encoding=utf8                                " enable utf8 support
+set hidden                                       " hide buffers, don't close
+set mouse=a                                      " enable mouse support
+set nowrap                                       " disable wrapping
 set number relativenumber
+set term=xterm-256color                          " terminal type
+set wildmenu wildmode=longest:full,full          " wildmode settings
 
-" Set Proper Tabs
-set tabstop=2
-set shiftwidth=1
-set smarttab
-set expandtab
+" UI Settings
 
-" Always display the status line
-set laststatus=2
-
-" Enable Elite mode, No ARRRROWWS!!!!
-let g:elite_mode=1
-
-" Enable highlighting of the current line
-set cursorline
-
-" Theme and Styling
-syntax on
-set t_Co=256
-
-" if (has("termguicolors"))
-"   set termguicolors
-" endif
-
-colorscheme spacegray
-
-let g:spacegray_underline_search = 1
-let g:spacegray_italicize_comments = 1
-
-" Vim-Airline Configuration
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
-let g:airline_theme='hybrid'
-let g:hybrid_custom_term_colors = 1
-let g:hybrid_reduced_contrast = 1
-
-" Syntastic Configuration
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-" let g:syntastic_check_on_wq = 0
-" let g:syntastic_enable_elixir_checker = 1
-" let g:syntastic_elixir_checkers = ["elixir"]
-
-" Neomake settings
-autocmd! BufWritePost * Neomake
-let g:neomake_elixir_enabled_makers = ['mix', 'credo', 'dogma']
-
-" Vim-PDV Configuration
-let g:pdv_template_dir = $HOME ."/.vim/bundle/pdv/templates_snip"
-
-" Markdown Syntax Support
-augroup markdown
-    au!
-    au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
-augroup END
-
-" Vim-Alchemist Configuration
-let g:alchemist#elixir_erlang_src = "/Users/amacgregor/Projects/Github/alchemist-source"
-let g:alchemist_tag_disable = 1
-
-" Vim-Supertab Configuration
-let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
-
-" Settings for Writting
-let g:pencil#wrapModeDefault = 'soft'   " default is 'hard'
-let g:languagetool_jar  = '/opt/languagetool/languagetool-commandline.jar'
-
-" Vim-pencil Configuration
-augroup pencil
-  autocmd!
-  autocmd FileType markdown,mkd call pencil#init()
-  autocmd FileType text         call pencil#init()
-augroup END
-
-" Vim-UtilSnips Configuration
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-" let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-let g:UltiSnipsEditSplit="vertical" " If you want :UltiSnipsEdit to split your window.
-
-" Vim-Test Configuration
-let test#strategy = "vimux"
-
-" Neocomplete Settings
-let g:acp_enableAtStartup = 0
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#enable_smart_case = 1
-let g:neocomplete#sources#syntax#min_keyword_length = 3
-
-" Define dictionary.
-let g:neocomplete#sources#dictionary#dictionaries = {
-    \ 'default' : '',
-    \ 'vimshell' : $HOME.'/.vimshell_hist',
-    \ 'scheme' : $HOME.'/.gosh_completions'
-        \ }
-
-" Define keyword.
-if !exists('g:neocomplete#keyword_patterns')
-    let g:neocomplete#keyword_patterns = {}
+filetype plugin indent on                        " enable filetype detection
+set listchars=eol:¶,trail:•,tab:▸\               " whitespace characters
+set scrolloff=999                                " center cursor position vertically
+set showbreak=¬\                                 " Wrapping character
+set showmatch                                    " show matching brackets
+syntax on                                        " enable syntax highlightning
+" Disable arrow movement, resize splits instead.
+if get(g:, 'elite_mode')
 endif
-let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 
-function! s:my_cr_function()
-  return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
-  " For no inserting <CR> key.
-  "return pumvisible() ? "\<C-y>" : "\<CR>"
-endfunction
+" Colors
+colorscheme onedark
+hi Normal guibg=NONE ctermbg=NONE
+let g:onedark_termcolors=256
 
-" Close popup by <Space>.
-"inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
+" Statusline
+set laststatus=0                                 " disable statusline
+set ruler rulerformat=%40(%=%<%F%m\ \
+                      \›\ %{getfsize(@%)}B\ \
+                      \›\ %l/%L:%v%)
 
-" AutoComplPop like behavior.
-"let g:neocomplete#enable_auto_select = 1
+" Tabs & Indentation
+set autoindent expandtab                         " autoindentation & tabbing
+set shiftwidth=2 softtabstop=2 tabstop=2         " 1 tab = 2 spaces
+
+" Search Setting
+set path+=**
+set hlsearch ignorecase incsearch smartcase      " search options
 
 
-" Enable omni completion.
+" Undo & backup
+set nobackup noswapfile nowritebackup            " disable backup/swap files
+set undofile undodir=~/.vim/undo undolevels=9999 " undo options
+
+" Performance tuning
+set lazyredraw                                   " enable lazyredraw
+set nocursorline                                 " disable cursorline
+set ttyfast                                      " enable fast terminal connection
+
+" Key Mappings
+let mapleader=','
+inoremap jj <Esc>
+cnoreabbrev w!! w !sudo tee > /dev/null %|       " write file with sudo
+vmap ++ <plug>NERDCommenterToggle
+nmap ++ <plug>NERDCommenterToggle
+nnoremap <Leader>o :Files<CR>
+inoremap <Leader>w <ESC>:w<CR>
+nnoremap <Leader>w :w<CR>
+noremap <F5> <ESC>:w<CR>:!clear;python %<CR>
+nnoremap <Up>    :resize +2<CR>
+nnoremap <Down>  :resize -2<CR>
+nnoremap <Left>  :vertical resize +2<CR>
+nnoremap <Right> :vertical resize -2<CR>
+
+" Autocomplete Settings
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
-" Enable heavy omni completion.
-if !exists('g:neocomplete#sources#omni#input_patterns')
-  let g:neocomplete#sources#omni#input_patterns = {}
-endif
-"let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-"let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-"let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 
-" For perlomni.vim setting.
-" https://github.com/c9s/perlomni.vim
-" let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
+" Plugin
+if empty(glob('~/.vim/autoload/plug.vim'))
+   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+       \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+    endif
 
-" Elixir Tagbar Configuration
-let g:tagbar_type_elixir = {
-    \ 'ctagstype' : 'elixir',
-    \ 'kinds' : [
-        \ 'f:functions',
-        \ 'functions:functions',
-        \ 'c:callbacks',
-        \ 'd:delegates',
-        \ 'e:exceptions',
-        \ 'i:implementations',
-        \ 'a:macros',
-        \ 'o:operators',
-        \ 'm:modules',
-        \ 'p:protocols',
-        \ 'r:records',
-        \ 't:tests'
-    \ ]
-    \ }
+call plug#begin()
+"General
+Plug 'neoclide/coc.nvim',{'branch':'release'}
+Plug 'tpope/vim-surround'
+Plug 'scrooloose/nerdcommenter'
 
-" Fzf Configuration
-" This is the default extra key bindings
-let g:fzf_action = {
-  \ 'ctrl-t': 'tab split',
-  \ 'ctrl-x': 'split',
-  \ 'ctrl-v': 'vsplit' }
-
-" Default fzf layout
-" - down / up / left / right
-let g:fzf_layout = { 'down': '~40%' }
-
-" In Neovim, you can set up fzf window using a Vim command
-let g:fzf_layout = { 'window': 'enew' }
-let g:fzf_layout = { 'window': '-tabnew' }
-
-" Customize fzf colors to match your color scheme
-let g:fzf_colors =
-\ { 'fg':      ['fg', 'Normal'],
-  \ 'bg':      ['bg', 'Normal'],
-  \ 'hl':      ['fg', 'Comment'],
-  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-  \ 'hl+':     ['fg', 'Statement'],
-  \ 'info':    ['fg', 'PreProc'],
-  \ 'prompt':  ['fg', 'Conditional'],
-  \ 'pointer': ['fg', 'Exception'],
-  \ 'marker':  ['fg', 'Keyword'],
-  \ 'spinner': ['fg', 'Label'],
-  \ 'header':  ['fg', 'Comment'] }
-
-" Enable per-command history.
-" CTRL-N and CTRL-P will be automatically bound to next-history and
-" previous-history instead of down and up. If you don't like the change,
-" explicitly bind the keys to down and up in your $FZF_DEFAULT_OPTS.
-let g:fzf_history_dir = '~/.local/share/fzf-history'
-
-"""""""""""""""""""""""""""""""""""""
-" Mappings configurationn
-"""""""""""""""""""""""""""""""""""""
-inoremap jj <Esc>
-
-map <C-n> :NERDTreeToggle<CR>
-map <C-m> :TagbarToggle<CR>
-vmap ++ <plug>NERDCommenterToggle
-nmap ++ <plug>NERDCommenterToggle
-
-" Omnicomplete Better Nav
-inoremap <expr> <c-j> ("\<C-n>")
-inoremap <expr> <c-k> ("\<C-p>")
-
-" Neocomplete Plugin mappins
-inoremap <expr><C-g>     neocomplete#undo_completion()
-inoremap <expr><C-l>     neocomplete#complete_common_string()
-
-" Recommended key-mappings.
-" <CR>: close popup and save indent.
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-
-" <TAB>: completion.
-" inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-
-" <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-
-" Mapping selecting Mappings
-nmap <leader><tab> <plug>(fzf-maps-n)
-xmap <leader><tab> <plug>(fzf-maps-x)
-omap <leader><tab> <plug>(fzf-maps-o)
-
-" Shortcuts
-nnoremap <Leader>o :Files<CR>
-nnoremap <Leader>w :w<CR>
-noremap <F5> <ESC>:w<CR>:!clear;python %<CR>
-" Insert mode completion
-imap <c-x><c-k> <plug>(fzf-complete-word)
-imap <c-x><c-f> <plug>(fzf-complete-path)
-imap <c-x><c-j> <plug>(fzf-complete-file-ag)
-imap <c-x><c-l> <plug>(fzf-complete-line)
-
-" Vim-Test Mappings
-nmap <silent> <leader>t :TestNearest<CR>
-nmap <silent> <leader>T :TestFile<CR>
-nmap <silent> <leader>a :TestSuite<CR>
-nmap <silent> <leader>l :TestLast<CR>
-nmap <silent> <leader>g :TestVisit<CR>
-
-" Vim-PDV Mappings
-autocmd FileType php inoremap <C-p> <ESC>:call pdv#DocumentWithSnip()<CR>i
-autocmd FileType php nnoremap <C-p> :call pdv#DocumentWithSnip()<CR>
-autocmd FileType php setlocal omnifunc=phpcd#CompletePHP
-
-" Disable arrow movement, resize splits instead.
-if get(g:, 'elite_mode')
-	nnoremap <Up>    :resize +2<CR>
-	nnoremap <Down>  :resize -2<CR>
-	nnoremap <Left>  :vertical resize +2<CR>
-	nnoremap <Right> :vertical resize -2<CR>
-endif
-
-map <silent> <LocalLeader>ws :highlight clear ExtraWhitespace<CR>
-
-" Advanced customization using autoload functions
-inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '15%'})
+"Language enhance
+Plug 'pangloss/vim-javascript'    " JavaScript support
+Plug 'leafgarland/typescript-vim' " TypeScript syntax
+Plug 'maxmellon/vim-jsx-pretty'   " JS and JSX syntax
+Plug 'jparise/vim-graphql'        " GraphQL syntax
+Plug 'mxw/vim-jsx'
+Plug 'isruslan/vim-es6'
+Plug 'honza/vim-snippets'
+Plug 'Townk/vim-autoclose'
+Plug 'alvan/vim-closetag'
+call plug#end()            " required
 
 
-" NerdTree auto startup"
-autocmd vimenter * NERDTree
-let g:NERDTreeIgnore = ['^node_modules$']
 
-"swtich between panes"
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-h> <C-W>h
-map <C-l> <C-W>l
 
-" filenames like *.xml, *.html, *.xhtml, ...
- " These are the file extensions where this plugin is enabled.
- "
- let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.js,*.jsx,*.ts,*.tsx'
+"netrw config
+let g:netrw_liststyle = 3
+let g:netrw_browse_split = 2
+let g:netrw_banner = 0 "remove banner"
 
- " filenames like *.xml, *.xhtml, ...
- " This will make the list of non-closing tags self-closing in the specified
- files.
- "
- let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
 
- " integer value [0|1]
- " This will make the list of non-closing tags case-sensitive (e.g. `<Link>`
-"  will be closed while `<link>` won't.)
- "
- let g:closetag_emptyTags_caseSensitive = 1
-
- " Shortcut for closing tags, default is '>'
- "
- let g:closetag_shortcut = '>'
-
- " Add > at current position without closing the current tag, default is ''
- "
- let g:closetag_close_shortcut = '<leader>>'
- let g:elm_format_autosave = 1
-
- 
-" TextEdit might fail if hidden is not set.
-set hidden
-
-" Some servers have issues with backup files, see #649.
-set nobackup
-set nowritebackup
-
+" COC Config Begin
 " Give more space for displaying messages.
 set cmdheight=2
 
@@ -454,6 +128,7 @@ if has("patch-8.1.1564")
 else
   set signcolumn=yes
 endif
+
 
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
@@ -582,3 +257,47 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+" COC Config End
+
+"closetag config start
+" filenames like *.xml, *.html, *.xhtml, ...
+" These are the file extensions where this plugin is enabled.
+"
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
+
+" filenames like *.xml, *.xhtml, ...
+" This will make the list of non-closing tags self-closing in the specified files.
+"
+let g:closetag_xhtml_filenames = '*.xhtml,*.jsx,*.js,*.ts,*.tsx'
+
+" filetypes like xml, html, xhtml, ...
+" These are the file types where this plugin is enabled.
+"
+let g:closetag_filetypes = 'html,xhtml,phtml'
+
+" filetypes like xml, xhtml, ...
+" This will make the list of non-closing tags self-closing in the specified files.
+"
+let g:closetag_xhtml_filetypes = 'xhtml,javascript,jsx'
+
+" integer value [0|1]
+" This will make the list of non-closing tags case-sensitive (e.g. `<Link>` will be closed while `<link>` won't.)
+"
+let g:closetag_emptyTags_caseSensitive = 1
+
+" dict
+" Disables auto-close if not in a "valid" region (based on filetype)
+"
+let g:closetag_regions = {
+    \ 'typescript.tsx': 'jsxRegion,tsxRegion',
+    \ 'javascript.jsx': 'jsxRegion',
+    \ }
+
+" Shortcut for closing tags, default is '>'
+"
+let g:closetag_shortcut = '>'
+
+" Add > at current position without closing the current tag, default is ''
+"
+let g:closetag_close_shortcut = '<leader>>'
+"closetag config end

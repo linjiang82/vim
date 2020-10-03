@@ -11,8 +11,11 @@ set number relativenumber
 set term=xterm-256color                          " terminal type
 set wildmenu wildmode=longest:full,full          " wildmode settings
 
-" UI Settings
+" Tabs & Indentation
+set autoindent expandtab                         " autoindentation & tabbing
+set shiftwidth=2 softtabstop=2 tabstop=2         " 1 tab = 2 spaces
 
+" UI Settings
 filetype plugin indent on                        " enable filetype detection
 set listchars=eol:¶,trail:•,tab:▸\               " whitespace characters
 set scrolloff=999                                " center cursor position vertically
@@ -31,12 +34,9 @@ set ruler rulerformat=%40(%=%<%F%m\ \
                       \›\ %{getfsize(@%)}B\ \
                       \›\ %l/%L:%v%)
 
-" Tabs & Indentation
-set autoindent expandtab                         " autoindentation & tabbing
-set shiftwidth=2 softtabstop=2 tabstop=2         " 1 tab = 2 spaces
-
 " Search Setting
 set path+=**
+set wildignore+=**/node_modules/**               " ignore node_modules folder
 set hlsearch ignorecase incsearch smartcase      " search options
 
 
@@ -60,10 +60,10 @@ inoremap <Leader>w <ESC>:w<CR>
 nnoremap <Leader>w :w<CR>
 noremap <F5> <ESC>:w<CR>:!clear;python %<CR>
 " Disable arrow movement, resize splits instead.
-nnoremap <Up>    :resize +2<CR>
-nnoremap <Down>  :resize -2<CR>
-nnoremap <Left>  :vertical resize +2<CR>
-nnoremap <Right> :vertical resize -2<CR>
+nnoremap <Up>    :resize +5<CR>
+nnoremap <Down>  :resize -5<CR>
+nnoremap <Left>  :vertical resize +5<CR>
+nnoremap <Right> :vertical resize -5<CR>
 
 " Autocomplete Settings
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
@@ -85,17 +85,17 @@ call plug#begin()
 Plug 'neoclide/coc.nvim',{'branch':'release'}
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdcommenter'
+Plug 'alvan/vim-closetag'
+Plug 'jiangmiao/auto-pairs' "insert new indented line after CR
 
 "Language enhance
+Plug 'yuezk/vim-js'
 Plug 'pangloss/vim-javascript'    " JavaScript support
 Plug 'leafgarland/typescript-vim' " TypeScript syntax
 Plug 'maxmellon/vim-jsx-pretty'   " JS and JSX syntax
 Plug 'jparise/vim-graphql'        " GraphQL syntax
-Plug 'mxw/vim-jsx'
 Plug 'isruslan/vim-es6'
 Plug 'honza/vim-snippets'
-Plug 'Townk/vim-autoclose'
-Plug 'alvan/vim-closetag'
 call plug#end()            " required
 
 
@@ -120,12 +120,8 @@ set shortmess+=c
 
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved.
-if has("patch-8.1.1564")
-  " Recently vim can merge signcolumn and number column into one
-  set signcolumn=number
-else
-  set signcolumn=yes
-endif
+set signcolumn=yes
+" set signcolumn=number "merge the signcolumn and number column
 
 
 " Use tab for trigger completion with characters ahead and navigate.
@@ -271,12 +267,12 @@ let g:closetag_xhtml_filenames = '*.xhtml,*.jsx,*.js,*.ts,*.tsx'
 " filetypes like xml, html, xhtml, ...
 " These are the file types where this plugin is enabled.
 "
-let g:closetag_filetypes = 'html,xhtml,phtml'
+let g:closetag_filetypes = 'html,xhtml,phtml,javascript.jsx,javascript,typescript,typescriptreact'
 
 " filetypes like xml, xhtml, ...
 " This will make the list of non-closing tags self-closing in the specified files.
 "
-let g:closetag_xhtml_filetypes = 'xhtml,javascript,jsx'
+let g:closetag_xhtml_filetypes = 'xhtml'
 
 " integer value [0|1]
 " This will make the list of non-closing tags case-sensitive (e.g. `<Link>` will be closed while `<link>` won't.)

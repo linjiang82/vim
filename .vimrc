@@ -7,6 +7,7 @@ set encoding=utf8                                " enable utf8 support
 set hidden                                       " hide buffers, don't close
 set mouse=a                                      " enable mouse support
 set nowrap                                       " disable wrapping
+set textwidth=80                                 " wrap to 80 characters
 set number relativenumber
 set term=xterm-256color                          " terminal type
 set wildmenu wildmode=longest:full,full          " wildmode settings
@@ -87,7 +88,8 @@ Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdcommenter'
 Plug 'alvan/vim-closetag'
 Plug 'jiangmiao/auto-pairs' "insert new indented line after CR
-
+Plug 'AndrewRadev/tagalong.vim' "change tags at the same time
+Plug 'luochen1990/rainbow'        "rainbow brackets"
 "Language enhance
 Plug 'yuezk/vim-js'
 Plug 'pangloss/vim-javascript'    " JavaScript support
@@ -99,12 +101,17 @@ Plug 'honza/vim-snippets'
 call plug#end()            " required
 
 
+"rainbow config
+let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
+
+"tagalong config
+let g:tagalong_filetypes = ['html', 'xml', 'jsx', 'eruby', 'ejs', 'eco', 'php', 'htmldjango', 'javascriptreact', 'typescriptreact', 'javascript']
 
 
 "netrw config
 let g:netrw_liststyle = 3
 let g:netrw_browse_split = 2
-let g:netrw_banner = 0 "remove banner"
+let g:netrw_banner = 1 "remove banner"
 
 
 " COC Config Begin
@@ -295,3 +302,25 @@ let g:closetag_shortcut = '>'
 "
 let g:closetag_close_shortcut = '<leader>>'
 "closetag config end
+
+
+" Toggle Vexplore with F2
+function! ToggleVExplorer()
+  if exists("t:expl_buf_num")
+      let expl_win_num = bufwinnr(t:expl_buf_num)
+      if expl_win_num != -1
+          let cur_win_nr = winnr()
+          exec expl_win_num . 'wincmd w'
+          close
+          exec cur_win_nr . 'wincmd w'
+          unlet t:expl_buf_num
+      else
+          unlet t:expl_buf_num
+      endif
+  else
+      exec '1wincmd w'
+      Vexplore
+      let t:expl_buf_num = bufnr("%")
+  endif
+endfunction
+map <silent> <F2> :call ToggleVExplorer()<CR>

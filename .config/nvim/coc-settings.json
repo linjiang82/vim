@@ -1,0 +1,15 @@
+{
+	"eslint.options":{},
+ "coc.preferences.formatOnSaveFiletypes": [
+  "python",
+  "css",
+  "markdown",
+  "javascript",
+  "typescript",
+  "typescriptreact",
+  "json",
+  "javascriptreact",
+  "typescript.tsx",
+  "graphql"
+ ]
+}

@@ -12,6 +12,8 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'lifepillar/vim-gruvbox8'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'itchyny/lightline.vim'
+Plug 'mengelbrecht/lightline-bufferline'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
 Plug 'alvan/vim-closetag'
@@ -98,6 +100,7 @@ set listchars=tab:»·,trail:·
 " Remaps START
 " Align GitHub-flavored Markdown tables
 au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
+au FileType python noremap <F5> <ESC>:w<CR>:!clear;python3 %<CR>
 
 " Toggle between buffers
 let mapleader=','
@@ -107,7 +110,6 @@ vmap ++ <plug>NERDCommenterToggle
 nmap ++ <plug>NERDCommenterToggle
 inoremap <Leader>w <ESC>:w<CR>
 nnoremap <Leader>w :w<CR>
-noremap <F5> <ESC>:w<CR>:!clear;python3 %<CR>
 nnoremap <C-p> :Rg<Cr>
 nnoremap <C-e> :Files<Cr>
 nmap <Leader>bl :Buffers<CR>
@@ -152,11 +154,11 @@ set signcolumn=yes
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
-"inoremap <silent><expr> <TAB>
-      "\ pumvisible() ? "\<C-n>" :
-      "\ <SID>check_back_space() ? "\<TAB>" :
-      "\ coc#refresh()
-"inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! s:check_back_space() abort
   let col = col('.') - 1
@@ -325,3 +327,46 @@ let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowTo
 
 "tagalong config
 let g:tagalong_filetypes = ['html', 'xml', 'jsx', 'eruby', 'ejs', 'eco', 'php', 'htmldjango', 'javascriptreact', 'typescriptreact', 'javascript']
+
+
+" lightline setting START
+" let buffers be clickable
+let g:lightline#bufferline#clickable=1
+let g:lightline#bufferline#shorten_path=1
+let g:lightline#bufferline#min_buffer_count=1
+
+let g:lightline = {
+\  'colorscheme': 'jellybeans',
+\  'active': {
+\    'left': [ [], [], [ 'relativepath' ] ],
+\    'right': [ [], [], [ 'lineinfo', 'percent' ] ]
+\  },
+\  'inactive': {
+\    'left': [ [], [], [ 'relativepath' ] ],
+\    'right': [ [], [], [ 'lineinfo', 'percent' ] ]
+\  },
+\  'subseparator': {
+\    'left': '', 'right': ''
+\  },
+\  'tabline': {
+\    'left': [ ['buffers'] ],
+\    'right': [ [] ]
+\  },
+\  'tabline_separator': {
+\    'left': "", 'right': ""
+\  },
+\  'tabline_subseparator': {
+\    'left': "", 'right': ""
+\  },
+\  'component_expand': {
+\    'buffers': 'lightline#bufferline#buffers'
+\  },
+\  'component_raw': {
+\    'buffers': 1
+\  },
+\  'component_type': {
+\    'buffers': 'tabsel'
+\  }
+\}
+" lightline setting END
+"

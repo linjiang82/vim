@@ -317,7 +317,6 @@ let g:closetag_regions = {
 " Shortcut for closing tags, default is '>'
 "
 let g:closetag_shortcut = '>'
-
 " Add > at current position without closing the current tag, default is ''
 "
 let g:closetag_close_shortcut = '<leader>>'
@@ -337,10 +336,13 @@ let g:lightline#bufferline#min_buffer_count=1
 
 let g:lightline = {
 \  'colorscheme': 'jellybeans',
-\  'active': {
-\    'left': [ [], [], [ 'relativepath' ] ],
-\    'right': [ [], [], [ 'lineinfo', 'percent' ] ]
-\  },
+\ 'active': {
+\   'left': [ [ 'mode', 'paste' ],
+\             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
+\ },
+\ 'component_function': {
+\   'cocstatus': 'coc#status'
+\ },
 \  'inactive': {
 \    'left': [ [], [], [ 'relativepath' ] ],
 \    'right': [ [], [], [ 'lineinfo', 'percent' ] ]
@@ -368,5 +370,12 @@ let g:lightline = {
 \    'buffers': 'tabsel'
 \  }
 \}
+  " Use auocmd to force lightline update.
+  autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
+"\  'colorscheme': 'wombat',
+"\  'active': {
+"\    'left': [ [], [], [ 'relativepath' ] ],
+"\    'right': [ [], [], [ 'lineinfo', 'percent' ] ]
+"\  },
 " lightline setting END
 "

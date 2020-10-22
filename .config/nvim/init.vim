@@ -100,7 +100,7 @@ set listchars=tab:»·,trail:·
 " Remaps START
 " Align GitHub-flavored Markdown tables
 au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
-au FileType python noremap <F5> <ESC>:w<CR>:!clear;python3 %<CR>
+au FileType python noremap <F5> :w<CR>:vs term://python3 %<CR>
 
 " Toggle between buffers
 let mapleader=','
@@ -132,6 +132,8 @@ autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 " Remaps END
 "------------------------------------------------
+autocmd FileType python setlocal foldmethod=indent foldlevelstart=99 foldnestmax=2
+autocmd FileType javascript setlocal foldmethod=syntax foldlevelstart=99 foldnestmax=2
 
 
 " COC Config Begin

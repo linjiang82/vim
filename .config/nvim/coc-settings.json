@@ -1,6 +1,10 @@
 {
   "eslint.options": {},
   "python.pythonPath": "/Users/John/Documents/machineLearning/bin/python3",
+  "suggest.floatEnable": true,
+  "diagnostic.messageTarget": "float",
+  "signature.target": "float",
+  "coc.preferences.hoverTarget": "float",
   "python.jediEnabled": false,
   "coc.preferences.formatOnSaveFiletypes": [
     "python",

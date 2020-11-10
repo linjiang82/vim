@@ -110,8 +110,6 @@ vmap ++ <plug>NERDCommenterToggle
 nmap ++ <plug>NERDCommenterToggle
 inoremap <Leader>w <ESC>:w<CR>
 nnoremap <Leader>w :w<CR>
-nnoremap <C-p> :Rg<Cr>
-nnoremap <C-e> :Files<Cr>
 nmap <Leader>bl :Buffers<CR>
 nmap <Leader>g :GFiles<CR>
 nmap <Leader>e :Files<CR>
@@ -132,8 +130,8 @@ autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 " Remaps END
 "------------------------------------------------
-autocmd FileType python setlocal foldmethod=indent foldlevelstart=99 foldnestmax=2
-autocmd FileType javascript setlocal foldmethod=syntax foldlevelstart=99 foldnestmax=2
+autocmd FileType python setlocal foldmethod=indent foldlevelstart=1 foldnestmax=2
+autocmd FileType javascript setlocal foldmethod=syntax foldlevelstart=1 foldnestmax=2
 
 
 " COC Config Begin

@@ -28,6 +28,8 @@ Plug 'maxmellon/vim-jsx-pretty'   " JS and JSX syntax
 Plug 'jparise/vim-graphql'        " GraphQL syntax
 Plug 'isruslan/vim-es6'
 Plug 'honza/vim-snippets'
+"dart file syntax
+Plug 'dart-lang/dart-vim-plugin'
 call plug#end()
 " Plugins END
 "------------------------------------------------
@@ -42,7 +44,7 @@ set nocompatible
 set noswapfile
 set nowritebackup
 set number relativenumber
-set wildignore+=**/node_modules/**               " ignore node_modules folder
+set wildignore+=*/node_modules/*               " ignore node_modules folder
 set signcolumn=yes
 set title
 set wrap
@@ -232,7 +234,7 @@ nmap <leader>ac  <Plug>(coc-codeaction)
 nmap <leader>qf  <Plug>(coc-fix-current)
 
 " mapping for coc-explorer
-nmap <leader>ex :CocCommand explorer<CR>
+nmap <leader>x :CocCommand explorer<CR>
 
 " Terminal Function
 

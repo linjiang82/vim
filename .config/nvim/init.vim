@@ -121,8 +121,8 @@ nmap <Leader>h :History<CR>
 " Disable arrow movement, resize splits instead.
 nnoremap <Up>    :resize +5<CR>
 nnoremap <Down>  :resize -5<CR>
-nnoremap <Left>  :vertical resize +5<CR>
-nnoremap <Right> :vertical resize -5<CR>
+nnoremap <Left>  :vertical resize +10<CR>
+nnoremap <Right> :vertical resize -10<CR>
 
 " Autocomplete Settings
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
@@ -132,8 +132,9 @@ autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 " Remaps END
 "------------------------------------------------
-autocmd FileType python setlocal foldmethod=indent foldlevelstart=1 foldnestmax=2
-autocmd FileType javascript setlocal foldmethod=syntax foldlevelstart=1 foldnestmax=2
+autocmd FileType python setlocal foldmethod=indent foldlevelstart=99 foldnestmax=2
+autocmd FileType javascript setlocal foldmethod=syntax foldlevelstart=99 foldnestmax=2
+autocmd FileType dart setlocal foldmethod=syntax foldlevelstart=99 foldnestmax=99
 
 
 " COC Config Begin
@@ -296,8 +297,8 @@ function! s:ToggleTerminal(side, size) abort
 endfunction
 
 "Toggle terminal on/off (neovim)
-nnoremap <silent> <leader>tm :call <SID>ToggleTerminal('J', 6)<CR>
-tmap <silent> <leader>tm <esc>:call <SID>ToggleTerminal('J', 6)<CR>
+nnoremap <silent> <leader>t :call <SID>ToggleTerminal('J', 30)<CR>
+tmap <silent> <leader>t <esc>:call <SID>ToggleTerminal('J', 30)<CR>
 
 " Terminal enter to insert mode
 autocmd BufWinEnter,WinEnter term://* startinsert
@@ -352,6 +353,9 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+
+
+let g:python3_host_prog = '/usr/local/bin/python3'
 " COC Config End
 
 "closetag config start

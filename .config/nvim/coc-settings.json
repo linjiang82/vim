@@ -8,6 +8,7 @@
   "python.jediEnabled": false,
   "flutter.provider.enableSnippet": true,
   "coc.preferences.formatOnSaveFiletypes": [
+    "cs",
     "c",
     "cpp",
     "python",

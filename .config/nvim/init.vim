@@ -33,6 +33,8 @@ Plug 'mbbill/undotree'
 Plug 'dart-lang/dart-vim-plugin'
 "C# plugin
 Plug 'OmniSharp/omnisharp-vim'
+"solidity
+Plug 'tomlion/vim-solidity'
 call plug#end()
 " Plugins END
 "------------------------------------------------

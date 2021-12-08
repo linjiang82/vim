@@ -114,11 +114,6 @@ _G.packer_plugins = {
     path = "/Users/John/.local/share/nvim/site/pack/packer/start/jester",
     url = "https://github.com/David-Kunz/jester"
   },
-  ["lightline-bufferline"] = {
-    loaded = true,
-    path = "/Users/John/.local/share/nvim/site/pack/packer/start/lightline-bufferline",
-    url = "https://github.com/mengelbrecht/lightline-bufferline"
-  },
   ["lspkind-nvim"] = {
     loaded = true,
     path = "/Users/John/.local/share/nvim/site/pack/packer/start/lspkind-nvim",

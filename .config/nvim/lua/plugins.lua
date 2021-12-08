@@ -5,14 +5,13 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 return require('packer').startup(function(use)
---  use 'scrooloose/nerdcommenter'
+ -- use 'scrooloose/nerdcommenter'
   use 'tpope/vim-commentary'
   use 'mbbill/undotree'
   use 'tpope/vim-surround'
   use 'alvan/vim-closetag'
   use 'tpope/vim-surround'
   use 'nvim-lualine/lualine.nvim'
-  use 'mengelbrecht/lightline-bufferline'
   -- insert new indented line after CR
   use 'jiangmiao/auto-pairs' 
   
@@ -29,10 +28,10 @@ return require('packer').startup(function(use)
 	use 'mfussenegger/nvim-dap'
 	use 'nvim-telescope/telescope-dap.nvim'
 	use 'theHamsta/nvim-dap-virtual-text'
-	use 'kyazdani42/nvim-web-devicons'
 	use 'ryanoasis/vim-devicons'
 	use 'David-Kunz/jester'
   use 'kyazdani42/nvim-tree.lua'
+	use 'kyazdani42/nvim-web-devicons'
   use 'David-Kunz/treesitter-unit'
   use 'tpope/vim-fugitive'
   use 'sindrets/diffview.nvim'

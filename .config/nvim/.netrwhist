@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =2
+let g:netrw_dirhist_2='/Library/WebServer/Documents/linjiang82.github.io/_layouts'
+let g:netrw_dirhist_1='/Library/WebServer/Documents/linjiang82.github.io'
+let g:netrw_dirhist_0='/Library/WebServer/Documents/flutter/intern/lib'
+let g:netrw_dirhist_9='/Library/WebServer/Documents/flutter/intern'
+let g:netrw_dirhist_8='/Library/WebServer/Documents/flutter/intern/lib'
+let g:netrw_dirhist_7='/Library/WebServer/Documents/flutter/intern'
+let g:netrw_dirhist_6='/Library/WebServer/Documents/node/ecomm/client/course'
+let g:netrw_dirhist_5='/Library/WebServer/Documents/node/ecomm/client'
+let g:netrw_dirhist_4='/Library/WebServer/Documents/node/ecomm/client/core'
+let g:netrw_dirhist_3='/Library/WebServer/Documents/node/ecomm/client/course'

@@ -1,0 +1,15 @@
+# ignore all
+/*
+
+# but the following
+!.gitignore
+!.config
+.config/*
+!.config/nvim
+
+
+
+
+
+
+

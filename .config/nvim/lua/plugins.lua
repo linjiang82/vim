@@ -40,8 +40,8 @@ return require("packer").startup(
     use "David-Kunz/treesitter-unit"
     use "tpope/vim-fugitive"
     use "sindrets/diffview.nvim"
-    use "hrsh7th/vim-vsnip"
-    use "hrsh7th/vim-vsnip-integ"
+    -- use "hrsh7th/vim-vsnip"
+    -- use "hrsh7th/vim-vsnip-integ"
     use "hrsh7th/cmp-nvim-lsp"
     use "hrsh7th/cmp-buffer"
     use "hrsh7th/nvim-cmp"
@@ -50,6 +50,7 @@ return require("packer").startup(
     use "David-Kunz/cmp-npm"
     use "marko-cerovac/material.nvim"
     use "christoomey/vim-tmux-navigator"
+    use "L3MON4D3/LuaSnip" -- Snippets plugin
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if packer_bootstrap then

@@ -14,6 +14,16 @@ require("formatter").setup(
           }
         end
       },
+      go = {
+        -- gofmt
+        function()
+          return {
+            exe = "gofmt",
+            -- args = {"--indent-count", 2, "--stdin"},
+            stdin = true
+          }
+        end
+      },
       lua = {
         -- luafmt
         function()
@@ -33,7 +43,7 @@ vim.api.nvim_exec(
   [[
 augroup FormatAutogroup
   autocmd!
-  autocmd BufWritePost *.js,*.rs,*.lua FormatWrite
+  autocmd BufWritePost *.js,*.rs,*.lua,*.go FormatWrite
 augroup END
 ]],
   true

@@ -45,6 +45,12 @@ return require("packer").startup(
     use "christoomey/vim-tmux-navigator"
     use "L3MON4D3/LuaSnip" -- Snippets plugin
     use "saadparwaiz1/cmp_luasnip"
+    use {
+      "folke/which-key.nvim",
+      config = function()
+        require("which-key").setup {}
+      end
+    }
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if packer_bootstrap then

@@ -20,6 +20,7 @@ end
 
 map("n", "<leader>bl", ":Telescope buffers<CR>")
 map("n", "<leader>p", ":Telescope live_grep<CR>")
+map("n", "<leader>h", ":Telescope oldfiles<CR>")
 map("n", "<leader>ff", ":Telescope find_files<CR>")
 map("n", "<leader>FF", ":Telescope grep_string<CR>")
 map("n", "<leader>fD", ":lua telescope_live_grep_in_path()<CR>")

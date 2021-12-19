@@ -10,16 +10,11 @@ return require("packer").startup(
     use "wbthomason/packer.nvim"
     use "tpope/vim-commentary"
     use "mbbill/undotree"
-    -- use "alvan/vim-closetag"
-    use "windwp/nvim-ts-autotag"
     use "tpope/vim-surround"
     use "nvim-lualine/lualine.nvim"
-    -- insert new indented line after CR
-    use "jiangmiao/auto-pairs"
-
-    --rainbow brackets
-    use "luochen1990/rainbow"
-
+    use "windwp/nvim-autopairs"
+    use "windwp/nvim-ts-autotag"
+    use "p00f/nvim-ts-rainbow"
     use "mhartington/formatter.nvim"
     use {
       "neovim/nvim-lspconfig",
@@ -33,6 +28,7 @@ return require("packer").startup(
     use "mfussenegger/nvim-dap"
     use "nvim-telescope/telescope-dap.nvim"
     use "theHamsta/nvim-dap-virtual-text"
+    use "rcarriga/nvim-dap-ui"
     use "ryanoasis/vim-devicons"
     use "David-Kunz/jester"
     use "kyazdani42/nvim-tree.lua"
@@ -40,17 +36,15 @@ return require("packer").startup(
     use "David-Kunz/treesitter-unit"
     use "tpope/vim-fugitive"
     use "sindrets/diffview.nvim"
-    -- use "hrsh7th/vim-vsnip"
-    -- use "hrsh7th/vim-vsnip-integ"
     use "hrsh7th/cmp-nvim-lsp"
     use "hrsh7th/cmp-buffer"
     use "hrsh7th/nvim-cmp"
-    use "hrsh7th/cmp-vsnip"
     use "onsails/lspkind-nvim"
     use "David-Kunz/cmp-npm"
     use "marko-cerovac/material.nvim"
     use "christoomey/vim-tmux-navigator"
     use "L3MON4D3/LuaSnip" -- Snippets plugin
+    use "saadparwaiz1/cmp_luasnip"
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if packer_bootstrap then

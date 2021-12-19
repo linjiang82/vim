@@ -17,6 +17,7 @@ _G.telescope_files_or_git_files = function()
     builtin.find_files()
   end
 end
+
 map("n", "<leader>bl", ":Telescope buffers<CR>")
 map("n", "<leader>p", ":Telescope live_grep<CR>")
 map("n", "<leader>ff", ":Telescope find_files<CR>")

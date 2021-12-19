@@ -1,10 +1,85 @@
 -- mfussenegger/nvim-dap
 local dap = require("dap")
+
+--javascript
 dap.adapters.node2 = {
   type = "executable",
   command = "node",
-  args = {os.getenv("HOME") .. "/apps/node/out/src/nodeDebug.js"}
+  args = {os.getenv("HOME") .. "/.local/share/nvim/dap/vscode-node-debug2/out/src/nodeDebug.js"}
 }
+dap.configurations.javascript = {
+  {
+    name = "Launch",
+    type = "node2",
+    request = "launch",
+    program = "${file}",
+    cwd = vim.fn.getcwd(),
+    sourceMaps = true,
+    protocol = "inspector",
+    console = "integratedTerminal"
+  },
+  {
+    -- For this to work you need to make sure the node process is started with the `--inspect` flag.
+    name = "Attach to process",
+    type = "node2",
+    request = "attach",
+    processId = require "dap.utils".pick_process
+  }
+}
+
+--JSX, TSX
+dap.adapters.chrome = {
+  type = "executable",
+  command = "node",
+  args = {os.getenv("HOME") .. "/.local/share/nvim/dap/vscode-chrome-debug/out/src/chromeDebug.js"}
+}
+
+dap.configurations.javascriptreact = {
+  -- change this to javascript if needed
+  {
+    type = "chrome",
+    request = "attach",
+    program = "${file}",
+    cwd = vim.fn.getcwd(),
+    sourceMaps = true,
+    protocol = "inspector",
+    port = 9222,
+    webRoot = "${workspaceFolder}"
+  }
+}
+
+dap.configurations.typescriptreact = {
+  -- change to typescript if needed
+  {
+    type = "chrome",
+    request = "attach",
+    program = "${file}",
+    cwd = vim.fn.getcwd(),
+    sourceMaps = true,
+    protocol = "inspector",
+    port = 9222,
+    webRoot = "${workspaceFolder}"
+  }
+}
+
+--go
+dap.adapters.go = {
+  type = "executable",
+  command = "node",
+  args = {os.getenv("HOME") .. "/.local/share/nvim/dap/vscode-go/dist/debugAdapter.js"}
+}
+dap.configurations.go = {
+  {
+    type = "go",
+    name = "Debug",
+    request = "launch",
+    showLog = true,
+    program = "${file}",
+    console = "integratedTerminal",
+    dlvToolPath = vim.fn.exepath(os.getenv("HOME") .. "/go/bin/dlv") -- Adjust to where delve is installed
+  }
+}
+
 -- require('dap').set_log_level('INFO')
 dap.defaults.fallback.terminal_win_cmd = "80vsplit new"
 vim.fn.sign_define("DapBreakpoint", {text = "🟥", texthl = "", linehl = "", numhl = ""})
@@ -43,3 +118,5 @@ map("n", "<leader>db", ":Telescope dap list_breakpoints<CR>")
 
 -- theHamsta/nvim-dap-virtual-text and mfussenegger/nvim-dap
 require("nvim-dap-virtual-text").setup()
+require("dapui").setup()
+map("n", "<leader>dq", ':lua require"dapui".toggle()<CR>')

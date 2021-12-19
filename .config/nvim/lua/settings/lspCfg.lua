@@ -1,7 +1,7 @@
 -- hrsh7th/nvim-cmp
 local cmp = require "cmp"
-local lspkind = require("lspkind")
-local luasnip = require("luasnip")
+local lspkind = require "lspkind"
+local luasnip = require "luasnip"
 
 cmp.setup(
   {
@@ -10,6 +10,9 @@ cmp.setup(
         luasnip.lsp_expand(args.body)
       end
     },
+    -- completion = {
+    --   completeopt = "menu, menuone, noinsert"
+    -- },
     mapping = {
       ["<C-d>"] = cmp.mapping.scroll_docs(-4),
       ["<C-f>"] = cmp.mapping.scroll_docs(4),
@@ -38,11 +41,11 @@ cmp.setup(
     sources = {
       {name = "npm"},
       {name = "nvim_lsp"},
-      {name = "vsnip"},
+      {name = "luasnip"},
       {name = "buffer", keyword_length = 5}
     },
     formatting = {
-      format = lspkind.cmp_format({with_text = false, maxwidth = 50})
+      format = lspkind.cmp_format({with_text = true, maxwidth = 50})
     }
   }
 )

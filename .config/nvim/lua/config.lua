@@ -1,5 +1,5 @@
 -- default options
-opt.completeopt = {"menu", "menuone", "noselect"}
+opt.completeopt = {"menu", "menuone", "noselect", "noinsert"}
 opt.clipboard = {"unnamed", "unnamedplus"}
 opt.mouse = "a"
 opt.splitright = true

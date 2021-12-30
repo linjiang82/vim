@@ -50,29 +50,19 @@ cmp.setup(
   }
 )
 
-local nvim_lsp = require "lspconfig"
-local servers = {
-  "tsserver",
-  "rust_analyzer",
-  "pyright",
-  "cssls",
-  "html",
-  "html",
-  "jsonls",
-  "graphql",
-  "dockerls",
-  "eslint",
-  "clangd",
-  "gopls",
-  "golangci_lint_ls"
-}
+local lsp_installer = require "nvim-lsp-installer"
+local servers = lsp_installer.get_installed_servers()
 local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 for _, lsp in ipairs(servers) do
   --Enable (broadcasting) snippet capability for completion
-  nvim_lsp[lsp].setup {
-    capabilities = capabilities
-  }
+  lsp:on_ready(
+    function()
+      lsp:setup {
+        capabilities = capabilities
+      }
+    end
+  )
 end
 
 -- lua language server

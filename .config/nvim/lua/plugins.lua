@@ -33,7 +33,6 @@ return require("packer").startup(
     use "David-Kunz/jester"
     use "kyazdani42/nvim-tree.lua"
     use "kyazdani42/nvim-web-devicons"
-    use "David-Kunz/treesitter-unit"
     use "tpope/vim-fugitive"
     use "sindrets/diffview.nvim"
     use "hrsh7th/cmp-nvim-lsp"
@@ -45,6 +44,7 @@ return require("packer").startup(
     use "christoomey/vim-tmux-navigator"
     use "L3MON4D3/LuaSnip" -- Snippets plugin
     use "saadparwaiz1/cmp_luasnip"
+    use "norcalli/nvim-colorizer.lua" --show colors
     use {
       "folke/which-key.nvim",
       config = function()

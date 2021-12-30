@@ -27,3 +27,4 @@ g.markdown_fenced_languages = {"javascript", "js=javascript", "json=javascript"}
 g.guifont = "DroidSansMonos\\ Nerd\\ Font\\ Mono:h11"
 -- opt.path:append({ "**" })
 vim.cmd([[set path=$PWD/**]])
+vim.cmd("colorscheme material")

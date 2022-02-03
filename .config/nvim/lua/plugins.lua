@@ -56,6 +56,8 @@ return require("packer").startup(function(use)
 			require("which-key").setup({})
 		end,
 	})
+	-- markdown preview, run "call mkdp#util#install()" after installed the plugin
+	use("iamcco/markdown-preview.nvim")
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if packer_bootstrap then

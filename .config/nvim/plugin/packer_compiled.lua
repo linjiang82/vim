@@ -99,11 +99,6 @@ _G.packer_plugins = {
     path = "/Users/John/.local/share/nvim/site/pack/packer/start/diffview.nvim",
     url = "https://github.com/sindrets/diffview.nvim"
   },
-  ["formatter.nvim"] = {
-    loaded = true,
-    path = "/Users/John/.local/share/nvim/site/pack/packer/start/formatter.nvim",
-    url = "https://github.com/mhartington/formatter.nvim"
-  },
   ["gitsigns.nvim"] = {
     loaded = true,
     path = "/Users/John/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
@@ -124,10 +119,20 @@ _G.packer_plugins = {
     path = "/Users/John/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
   },
+  ["markdown-preview.nvim"] = {
+    loaded = true,
+    path = "/Users/John/.local/share/nvim/site/pack/packer/start/markdown-preview.nvim",
+    url = "https://github.com/iamcco/markdown-preview.nvim"
+  },
   ["material.nvim"] = {
     loaded = true,
     path = "/Users/John/.local/share/nvim/site/pack/packer/start/material.nvim",
     url = "https://github.com/marko-cerovac/material.nvim"
+  },
+  ["null-ls.nvim"] = {
+    loaded = true,
+    path = "/Users/John/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
+    url = "https://github.com/jose-elias-alvarez/null-ls.nvim"
   },
   ["nvim-autopairs"] = {
     loaded = true,
@@ -218,11 +223,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/John/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
-  },
-  ["treesitter-unit"] = {
-    loaded = true,
-    path = "/Users/John/.local/share/nvim/site/pack/packer/start/treesitter-unit",
-    url = "https://github.com/David-Kunz/treesitter-unit"
   },
   undotree = {
     loaded = true,

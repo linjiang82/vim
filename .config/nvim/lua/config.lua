@@ -4,7 +4,7 @@ opt.clipboard = { "unnamed", "unnamedplus" }
 opt.mouse = "a"
 opt.splitright = true
 opt.splitbelow = true
-opt.expandtab = false
+opt.expandtab = true
 opt.list = true
 opt.tabstop = 2
 opt.shiftwidth = 2
@@ -29,3 +29,4 @@ g.guifont = "DroidSansMonos\\ Nerd\\ Font\\ Mono:h11"
 -- opt.path:append({ "**" })
 vim.cmd([[set path=$PWD/**]])
 vim.cmd("colorscheme material")
+vim.cmd("hi NormalFloat guibg=#263270")

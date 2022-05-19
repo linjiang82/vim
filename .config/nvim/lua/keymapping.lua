@@ -3,7 +3,7 @@ map("i", "jj", "<ESC>", {})
 map("n", "<leader>w", ":w<cr>", {})
 map("i", "<leader>w", "<esc>:w<cr>a", {})
 
-local opts = {noremap = true}
+local opts = { noremap = true }
 
 --lsp
 map("n", "gd", ":lua vim.lsp.buf.definition()<CR>")
@@ -18,7 +18,7 @@ map("n", "gr", ":lua vim.lsp.buf.references()<CR>")
 map("n", "<leader>rn", ":lua vim.lsp.buf.rename()<CR>")
 map("n", "[d", ":lua vim.diagnostic.goto_prev()<CR>")
 map("n", "]d", ":lua vim.diagnostic.goto_next()<CR>")
-map("n", "<left>", ":vertical resize +5<CR>", opts)
-map("n", "<right>", ":vertical resize -5<CR>", opts)
-map("n", "<up>", ":resize -5<CR>", opts)
-map("n", "<down>", ":resize +5<CR>", opts)
+map("n", "<left>", ":vertical resize +10<CR>", opts)
+map("n", "<right>", ":vertical resize -10<CR>", opts)
+map("n", "<up>", ":resize -10<CR>", opts)
+map("n", "<down>", ":resize +10<CR>", opts)

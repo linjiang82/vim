@@ -49,6 +49,14 @@ return require("packer").startup(function(use)
 	use("L3MON4D3/LuaSnip") -- Snippets plugin
 	use("saadparwaiz1/cmp_luasnip")
 	use("norcalli/nvim-colorizer.lua") --show colors
+	use({
+		"phaazon/hop.nvim",
+		branch = "v1", -- optional but strongly recommended
+		config = function()
+			-- you can configure Hop the way you like here; see :h hop-config
+			require("hop").setup({ keys = "etovxqpdygfblzhckisuran" })
+		end,
+	})
 	use("jose-elias-alvarez/null-ls.nvim")
 	use({
 		"folke/which-key.nvim",

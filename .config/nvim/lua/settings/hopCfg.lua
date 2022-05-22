@@ -1,0 +1,6 @@
+-- place this in one of your configuration file(s)
+map("n", "f", "<cmd>lua require'hop'.hint_char1()<cr>", {})
+map("o", "f", "<cmd>lua require'hop'.hint_char1()<cr>", {})
+map("n", "<leader>e", "<cmd>lua require'hop'.hint_words()<cr>", {})
+map("v", "<leader>e", "<cmd>lua require'hop'.hint_words()<cr>", {})
+map("o", "<leader>e", "<cmd>lua require'hop'.hint_words()<cr>", {})

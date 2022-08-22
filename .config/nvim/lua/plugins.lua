@@ -49,6 +49,7 @@ return require("packer").startup(function(use)
 	use("L3MON4D3/LuaSnip") -- Snippets plugin
 	use("saadparwaiz1/cmp_luasnip")
 	use("norcalli/nvim-colorizer.lua") --show colors
+	use("gpanders/editorconfig.nvim") -- editorconfig
 	use({
 		"phaazon/hop.nvim",
 		branch = "v1", -- optional but strongly recommended

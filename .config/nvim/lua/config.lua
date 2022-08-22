@@ -21,6 +21,8 @@ opt.updatetime = 520
 opt.undofile = true
 cmd("filetype plugin indent on")
 opt.backup = false
+-- set to only display one statusline
+opt.laststatus = 3
 g.netrw_banner = false
 g.netrw_liststyle = 3
 g.markdown_fenced_languages = { "javascript", "js=javascript", "json=javascript" }
@@ -30,3 +32,5 @@ g.guifont = "DroidSansMonos\\ Nerd\\ Font\\ Mono:h11"
 vim.cmd([[set path=$PWD/**]])
 vim.cmd("colorscheme material")
 vim.cmd("hi NormalFloat guibg=#263270")
+--format on save
+vim.cmd([[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]])

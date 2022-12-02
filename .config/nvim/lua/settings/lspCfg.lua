@@ -4,6 +4,8 @@ local lspkind = require("lspkind")
 local luasnip = require("luasnip")
 local lspconfig = require("lspconfig")
 local lsp_installer = require("nvim-lsp-installer")
+require("cmp-npm").setup({})
+require("cmp_path")
 
 lsp_installer.setup({
   automatic_installation = true,
@@ -44,10 +46,13 @@ cmp.setup({
     end,
   },
   sources = {
-    { name = "npm" },
     { name = "nvim_lsp" },
     { name = "luasnip" },
-    { name = "buffer", keyword_length = 5 },
+    { name = "nvim_lsp_signature_help" },
+    { name = "nvim_lua" },
+    { name = "path" },
+    { name = "npm", keyword_length = 4 },
+    { name = "buffer", keyword_length = 4 },
   },
   formatting = {
     format = lspkind.cmp_format({ with_text = true, maxwidth = 50 }),
@@ -55,7 +60,7 @@ cmp.setup({
 })
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 local runtime_path = vim.split(package.path, ";")

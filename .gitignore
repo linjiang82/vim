@@ -1,16 +1,12 @@
-# ignore all
-/*
+# Ignore everything
+*
+*/**
 
-# but the following
+# But not these files...
 !.gitignore
+!.tmux.conf
 !.config
-.config/*
 !.config/nvim
-.config/nvim/plugged
 
-
-
-
-
-
-
+# if the files to be tracked are in subdirectories
+!.config/nvim/**

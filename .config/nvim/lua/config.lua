@@ -29,8 +29,15 @@ g.markdown_fenced_languages = { "javascript", "js=javascript", "json=javascript"
 
 g.guifont = "DroidSansMonos\\ Nerd\\ Font\\ Mono:h11"
 -- opt.path:append({ "**" })
-vim.cmd([[set path=$PWD/**]])
-vim.cmd("colorscheme material")
-vim.cmd("hi NormalFloat guibg=#263270")
---format on save
-vim.cmd([[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]])
+cmd([[set path=$PWD/**]])
+cmd("colorscheme material")
+cmd("hi NormalFloat guibg=#263270")
+-- format on save
+cmd([[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]])
+
+-- vim.api.nvim_create_autocmd("BufWritePost", {
+-- 	command = "FormatWrite",
+-- 	-- callback = function()
+-- 	--   -- vim.lsp.buf.format();
+-- 	-- end
+-- })

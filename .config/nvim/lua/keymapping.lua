@@ -22,3 +22,6 @@ map("n", "<left>", ":vertical resize +10<CR>", opts)
 map("n", "<right>", ":vertical resize -10<CR>", opts)
 map("n", "<up>", ":resize -10<CR>", opts)
 map("n", "<down>", ":resize +10<CR>", opts)
+
+map("n", "[h", ":Gitsigns next_hunk<CR>", opts)
+map("n", "]h", ":Gitsigns prev_hunk<CR>", opts)

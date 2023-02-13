@@ -13,6 +13,7 @@ opt.relativenumber = true
 opt.ignorecase = true
 opt.smartcase = true
 opt.incsearch = true
+opt.termguicolors = true
 -- set diffopt+=vertical " starts diff mode in vertical split
 opt.cmdheight = 1
 -- set shortmess+=c " don't need to press enter so often
@@ -26,7 +27,7 @@ opt.laststatus = 3
 g.netrw_banner = false
 g.netrw_liststyle = 3
 g.markdown_fenced_languages = { "javascript", "js=javascript", "json=javascript" }
-
+vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
 g.guifont = "DroidSansMonos\\ Nerd\\ Font\\ Mono:h11"
 -- opt.path:append({ "**" })
 cmd([[set path=$PWD/**]])

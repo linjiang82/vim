@@ -104,7 +104,6 @@ for _, lsp in ipairs(servers) do
 			if client.server_capabilities.documentSymbolProvider then
 				navic.attach(client, bufnr)
 			end
-			client.server_capabilities.document_formatting = true
 		end,
 	})
 end

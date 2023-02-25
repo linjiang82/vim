@@ -59,7 +59,6 @@ return require("packer").startup(function(use)
 	use("L3MON4D3/LuaSnip") -- Snippets plugin
 	use("norcalli/nvim-colorizer.lua") --show colors
 	-- use("mhartington/formatter.nvim") -- formatter
-	use("gpanders/editorconfig.nvim") -- editorconfig
 	use({
 		"phaazon/hop.nvim",
 		branch = "v1", -- optional but strongly recommended

@@ -25,3 +25,6 @@ map("n", "<down>", ":resize +10<CR>", opts)
 
 map("n", "[h", ":Gitsigns next_hunk<CR>", opts)
 map("n", "]h", ":Gitsigns prev_hunk<CR>", opts)
+
+--formatter
+map("n", "es", ":EslintFixAll<CR>:noa w<CR>", opts)

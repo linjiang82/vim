@@ -54,8 +54,8 @@ cmp.setup({
 		{ name = "nvim_lsp_signature_help" },
 		{ name = "nvim_lua" },
 		{ name = "path" },
-		{ name = "npm", keyword_length = 4 },
-		{ name = "buffer", keyword_length = 4 },
+		{ name = "npm", keyword_length = 3 },
+		{ name = "buffer", keyword_length = 3 },
 	},
 	formatting = {
 		format = lspkind.cmp_format({ with_text = true, maxwidth = 50 }),

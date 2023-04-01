@@ -31,8 +31,10 @@ vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
 g.guifont = "DroidSansMonos\\ Nerd\\ Font\\ Mono:h11"
 -- opt.path:append({ "**" })
 cmd([[set path=$PWD/**]])
-cmd("colorscheme material")
+cmd("colorscheme onedarker")
 cmd("hi NormalFloat guibg=#263270")
+cmd("packadd cfilter")
+
 -- format on save
 cmd([[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]])
 
@@ -42,3 +44,9 @@ cmd([[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]])
 -- 	--   -- vim.lsp.buf.format();
 -- 	-- end
 -- })
+-- vim.cmd([[highlight IndentBlanklineIndent1 guifg=#E06C75 gui=nocombine]])
+-- vim.cmd([[highlight IndentBlanklineIndent2 guifg=#E5C07B gui=nocombine]])
+-- vim.cmd([[highlight IndentBlanklineIndent3 guifg=#98C379 gui=nocombine]])
+-- vim.cmd([[highlight IndentBlanklineIndent4 guifg=#56B6C2 gui=nocombine]])
+-- vim.cmd([[highlight IndentBlanklineIndent5 guifg=#61AFEF gui=nocombine]])
+-- vim.cmd([[highlight IndentBlanklineIndent6 guifg=#C678DD gui=nocombine]])

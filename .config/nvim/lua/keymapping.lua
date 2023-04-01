@@ -28,3 +28,6 @@ map("n", "]h", ":Gitsigns prev_hunk<CR>", opts)
 
 --formatter
 map("n", "es", ":EslintFixAll<CR>:noa w<CR>", opts)
+
+--lazygit
+map("n", "<leader>lg", ":LazyGit<CR>", opts)

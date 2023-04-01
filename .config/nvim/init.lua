@@ -39,5 +39,6 @@ else
 	-- require("settings/fmtCfg")
 	require("settings/goCfg")
 	require("settings/nulllsCfg")
-	require("settings/bufferlineCfg")
+	require("settings/blanklineCfg")
+	-- require("settings/bufferlineCfg")
 end

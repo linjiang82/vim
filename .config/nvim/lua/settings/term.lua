@@ -24,7 +24,7 @@ map("n", "<leader><leader>", ":lua toggle_terminal()<CR>")
 map("i", "<leader><leader>", "<ESC>:lua toggle_terminal()<CR>")
 map("t", "<leader><leader>", "<c-\\><c-n>:lua toggle_terminal()<CR>")
 -- following keymapping conflict with lazygit
--- cmd([[
--- if has('nvim')
---    au! TermOpen * tnoremap <buffer> <Esc> <c-\><c-n>
--- endif]])
+cmd([[
+if has('nvim')
+   au! TermOpen * tnoremap <buffer> <leader>j <c-\><c-n>
+endif]])

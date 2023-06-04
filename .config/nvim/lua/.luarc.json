@@ -69,6 +69,7 @@
         "/Users/jiang.lin/.local/share/nvim/site/pack/packer/start/editorconfig.nvim/after",
         "/Users/jiang.lin/.local/share/nvim/site/pack/packer/start/go.nvim/after",
         "/Users/jiang.lin/.config/nvim/after",
-        "${3rd}/lfs/library"
+        "${3rd}/lfs/library",
+        "${3rd}/luv/library"
     ]
 }

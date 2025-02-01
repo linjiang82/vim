@@ -1,0 +1,123 @@
+""" Map leader to space ---------------------
+let mapleader=" "
+
+set clipboard+=unnamed
+
+""" Plugins  --------------------------------
+set surround
+set multiple-cursors
+set commentary
+set argtextobj
+set easymotion
+set ReplaceWithRegister
+set which-key
+
+set notimeout
+
+""" Plugin settings -------------------------
+let g:argtextobj_pairs="[:],(:),<:>"
+
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+set gdefault
+
+""" Common settings -------------------------
+set showmode
+set so=5
+set incsearch
+set nu
+set relativenumber
+
+""" Idea specific settings ------------------
+set ideajoin
+set ideastatusicon=gray
+set idearefactormode=keep
+
+""" Mappings --------------------------------
+inoremap jj <esc>
+nmap <leader>w :w<cr>
+map <leader>f <Plug>(easymotion-s)
+"map <leader>e <Plug>(easymotion-f)
+
+map <leader>d <Action>(Debug)
+map <leader>r <Action>(RenameElement)
+map <leader>c <Action>(Stop)
+map <leader>z <Action>(ToggleDistractionFreeMode)
+
+map <leader>a <Action>(Annotate)
+map <leader>h <Action>(Vcs.ShowTabbedFileHistory)
+nmap <leader><leader> <Action>(GotoFile)
+nmap <leader>sw <Action>(FindInPath)
+nmap <leader>si <Action>(SelectIn)
+
+map <leader>e <Action>(HideAllWindows)
+
+map <leader>b <Action>(ToggleLineBreakpoint)
+map <leader>o <Action>(FileStructurePopup)
+
+""" terminal
+nmap <leader>tt <Action>(ActivateTerminalToolWindow)
+nmap <leader>tc <Action>(Terminal.OpenInTerminal)
+
+
+""" Pane operations
+nmap <leader>wl <Action>(EditorSplitRight)
+
+" []
+nmap ]e <Action>(GotoNextError)
+nmap [e <Action>(GotoPreviousError)
+nmap [b <Action>(PreviousTab)
+nmap ]b <Action>(NextTab)
+nmap [u <Action>(GotoPrevElementUnderCaretUsage)
+nmap ]u <Action>(GotoNextElementUnderCaretUsage)
+nmap [o <Action>(PreviousOccurence)
+nmap ]o <Action>(NextOccurence)
+nmap [m <Action>(MethodUp)
+nmap ]m <Action>(MethodDown)
+nmap [h <Action>(JumpToLastChange)
+nmap ]h <Action>(JumpToNextChange)
+
+" refactor
+nmap <leader>rn <Action>(RenameElement)
+nmap <leader>re <Action>(Refactorings.QuickListPopupAction)
+nmap <leader>uw <Action>(Unwrap)
+xmap <leader>sw <Action>(SurroundWith)
+nmap <leader>sd <Action>(SafeDelete)
+nmap <leader>oi <Action>(OptimizeImports)
+
+" run
+nmap <leader>rc <Action>(ContextRun)
+nmap <leader>rx <Action>(chooseRunConfiguration)
+nmap <leader>rr <Action>(Rerun)
+nmap <leader>rt <Action>(RunTests)
+nmap <leader>rs <Action>(Stop)
+
+" window
+" Go to Left Window
+nmap <C-h> <C-w>h
+" Go to Lower Window
+nmap <C-j> <C-w>j
+" Go to Upper Window
+nmap <C-k> <C-w>k
+" Go to Right Window
+nmap <C-l> <C-w>l
+" Split Window Below.  :split<cr> doesn't work.
+nmap <leader>- <c-w>s
+" Split Window Right
+nmap <leader><bar> <c-w>v
+
+" Goto Implementation
+nmap gI <Action>(GotoImplementation)
+" Goto Type Definition
+nmap gy <Action>(GotoTypeDeclaration)
+" Code Action
+nmap <leader>ca <Action>(RefactoringMenu)
+vmap <leader>ca <Action>(RefactoringMenu)
+" Source Action
+nmap <leader>cA <Action>(ShowIntentionActions)
+
+
+" Lazygit (Root Dir)
+nmap <leader>gg <Action>(ActivateCommitToolWindow)

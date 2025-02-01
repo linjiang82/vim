@@ -16,3 +16,6 @@ vim.keymap.set("n", "<C-Space>", "<Cmd>NvimTmuxNavigateNavigateNext<CR>", { sile
 -- Buffers
 -- cannot map Tab here as it will override what <C-i> does
 vim.keymap.set("n", "<S-Tab>", ":bprevious<CR>", { silent = true, desc = "Previous Buffer" })
+
+-- copilot
+vim.keymap.set({ "n", "v" }, "<leader>cp", "<Cmd>CopilotChat<CR>", { silent = true, desc = "Run Copilot Chat" })

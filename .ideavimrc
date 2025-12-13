@@ -8,6 +8,9 @@ set surround
 set multiple-cursors
 set commentary
 set argtextobj
+set functiontextobj
+set mini-ai
+set exchange
 set easymotion
 set ReplaceWithRegister
 set which-key
@@ -29,6 +32,7 @@ set so=5
 set incsearch
 set nu
 set relativenumber
+set fixendofline
 
 """ Idea specific settings ------------------
 set ideajoin
@@ -37,6 +41,9 @@ set idearefactormode=keep
 
 """ Mappings --------------------------------
 inoremap jj <esc>
+""" clear search highlight
+nnoremap <silent> <Esc> :noh<CR>
+
 nmap <leader>w :w<cr>
 map <leader>f <Plug>(easymotion-s)
 "map <leader>e <Plug>(easymotion-f)
@@ -50,7 +57,9 @@ map <leader>a <Action>(Annotate)
 map <leader>h <Action>(Vcs.ShowTabbedFileHistory)
 nmap <leader><leader> <Action>(GotoFile)
 nmap <leader>sw <Action>(FindInPath)
+nmap <leader>su <Action>(FindUsages)
 nmap <leader>si <Action>(SelectIn)
+nmap <leader>l <Action>(Switcher)
 
 map <leader>e <Action>(HideAllWindows)
 
@@ -63,7 +72,8 @@ nmap <leader>tc <Action>(Terminal.OpenInTerminal)
 
 
 """ Pane operations
-nmap <leader>wl <Action>(EditorSplitRight)
+nmap <leader>tr <Action>(MoveTabRight)
+nmap <leader>ts <Action>(MoveEditorToOppositeTabGroup)
 
 " []
 nmap ]e <Action>(GotoNextError)
@@ -76,8 +86,8 @@ nmap [o <Action>(PreviousOccurence)
 nmap ]o <Action>(NextOccurence)
 nmap [m <Action>(MethodUp)
 nmap ]m <Action>(MethodDown)
-nmap [h <Action>(JumpToLastChange)
-nmap ]h <Action>(JumpToNextChange)
+nmap ]h <Action>(VcsShowNextChangeMarker)
+nmap [h <Action>(VcsShowPrevChangeMarker)
 
 " refactor
 nmap <leader>rn <Action>(RenameElement)
@@ -86,6 +96,10 @@ nmap <leader>uw <Action>(Unwrap)
 xmap <leader>sw <Action>(SurroundWith)
 nmap <leader>sd <Action>(SafeDelete)
 nmap <leader>oi <Action>(OptimizeImports)
+
+" file
+nmap <leader>nf <Action>(Kotlin.NewFile)
+nmap <leader>nd <Action>(Kotlin.NewDir)
 
 " run
 nmap <leader>rc <Action>(ContextRun)
@@ -112,6 +126,7 @@ nmap <leader><bar> <c-w>v
 nmap gI <Action>(GotoImplementation)
 " Goto Type Definition
 nmap gy <Action>(GotoTypeDeclaration)
+nmap gh <Action>(ShowHoverInfo)
 " Code Action
 nmap <leader>ca <Action>(RefactoringMenu)
 vmap <leader>ca <Action>(RefactoringMenu)
@@ -121,3 +136,7 @@ nmap <leader>cA <Action>(ShowIntentionActions)
 
 " Lazygit (Root Dir)
 nmap <leader>gg <Action>(ActivateCommitToolWindow)
+
+
+" Git blame
+nmap <leader>gb <Action>(Annotate)

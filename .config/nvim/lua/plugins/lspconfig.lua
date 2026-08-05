@@ -59,6 +59,21 @@ return {
         filetypes = { "kotlin" },
         root_dir = util.root_pattern("settings.gradle.kts", ".git"),
       },
+      -- Enable oxlint as an LSP server
+      oxlint = {
+        root_dir = function(bufnr, on_dir)
+          -- Monorepo support: prioritises the top-level oxlint configuration
+          local git = vim.fs.root(bufnr, ".git")
+          local markers = { ".oxlintrc.json", ".oxlintrc.jsonc", "oxlint.config.ts" }
+          local root = git and vim.fs.root(git, markers) or vim.fs.root(bufnr, markers)
+          if root then
+            on_dir(root)
+          end
+        end,
+        settings = {
+          fixKind = "safe_fix", -- Options: "safe_fix", "all", or "none"
+        },
+      },
     },
   },
 }

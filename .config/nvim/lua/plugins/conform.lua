@@ -13,7 +13,7 @@ return {
         condition = function(ctx)
           -- Fallback to prettier if prettier config exists
           return vim.fs.find(
-            { ".prettierrc", ".prettierrc.json", "prettier.config.js" },
+            { ".prettierrc", ".prettierrc.json", "prettier.config.js", ".prettierrc.js" },
             { path = ctx.filename, upward = true }
           )[1] ~= nil
         end,

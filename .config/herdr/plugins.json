@@ -1,0 +1,133 @@
+[
+  {
+    "plugin_id": "linjiang82.ws-numbering",
+    "name": "Workspace Numbering",
+    "version": "0.1.0",
+    "min_herdr_version": "0.9.1",
+    "description": "Show each workspace's number in the sidebar via a $num token.",
+    "manifest_path": "/Users/jiang.lin/Documents/Personal/herdr-ws-numbering/herdr-plugin.toml",
+    "plugin_root": "/Users/jiang.lin/Documents/Personal/herdr-ws-numbering",
+    "enabled": true,
+    "platforms": [
+      "linux",
+      "macos"
+    ],
+    "startup": [
+      {
+        "command": [
+          "bin/ws-numbering"
+        ]
+      }
+    ],
+    "actions": [
+      {
+        "id": "refresh",
+        "title": "Refresh workspace numbers",
+        "contexts": [
+          "workspace"
+        ],
+        "command": [
+          "bin/ws-numbering"
+        ]
+      }
+    ],
+    "events": [
+      {
+        "on": "workspace.closed",
+        "command": [
+          "bin/ws-numbering"
+        ]
+      },
+      {
+        "on": "workspace.created",
+        "command": [
+          "bin/ws-numbering"
+        ]
+      },
+      {
+        "on": "workspace.moved",
+        "command": [
+          "bin/ws-numbering"
+        ]
+      },
+      {
+        "on": "workspace.reordered",
+        "command": [
+          "bin/ws-numbering"
+        ]
+      }
+    ],
+    "source": {
+      "kind": "local"
+    }
+  },
+  {
+    "plugin_id": "local.vim-navigator",
+    "name": "Vim Navigator",
+    "version": "0.1.0",
+    "min_herdr_version": "0.7.0",
+    "description": "Vim-aware Herdr pane navigation for ctrl+h/j/k/l.",
+    "manifest_path": "/Users/jiang.lin/.config/herdr/plugins/github/local.vim-navigator-3b4535ee8077/herdr-vim-navigator/herdr-plugin.toml",
+    "plugin_root": "/Users/jiang.lin/.config/herdr/plugins/github/local.vim-navigator-3b4535ee8077/herdr-vim-navigator",
+    "enabled": true,
+    "platforms": [
+      "linux",
+      "macos"
+    ],
+    "actions": [
+      {
+        "id": "down",
+        "title": "Navigate down",
+        "contexts": [
+          "pane"
+        ],
+        "command": [
+          "bin/herdr-vim-navigator",
+          "down"
+        ]
+      },
+      {
+        "id": "left",
+        "title": "Navigate left",
+        "contexts": [
+          "pane"
+        ],
+        "command": [
+          "bin/herdr-vim-navigator",
+          "left"
+        ]
+      },
+      {
+        "id": "right",
+        "title": "Navigate right",
+        "contexts": [
+          "pane"
+        ],
+        "command": [
+          "bin/herdr-vim-navigator",
+          "right"
+        ]
+      },
+      {
+        "id": "up",
+        "title": "Navigate up",
+        "contexts": [
+          "pane"
+        ],
+        "command": [
+          "bin/herdr-vim-navigator",
+          "up"
+        ]
+      }
+    ],
+    "source": {
+      "kind": "github",
+      "owner": "bojackduy",
+      "repo": "nvim-herdr-navigation",
+      "subdir": "herdr-vim-navigator",
+      "resolved_commit": "7798a2f027465698cb1a51695327e138319f61f3",
+      "managed_path": "/Users/jiang.lin/.config/herdr/plugins/github/local.vim-navigator-3b4535ee8077",
+      "installed_unix_ms": 1789987407683
+    }
+  }
+]
